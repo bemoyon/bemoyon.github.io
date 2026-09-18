@@ -1,0 +1,93 @@
+(Invoice Class) Create a class called Invoice that a hardware store might use to represent an
+invoice for an item sold at the store. An Invoice should include four pieces of information as
+instance variables—a part number (type String), a part description (type String), a quantity
+of the item being purchased (type int) and a price per item (double). Your class should have
+a constructor that initializes the four instance variables. Provide a set and a get method for
+each instance variable. In addition, provide a method named getInvoiceAmount that
+calculates the invoice amount (i.e., multiplies the quantity by the price per item), then returns
+the amount as a double value. If the quantity is not positive, it should be set to 0. If the price
+per item is not positive, it should be set to 0.0. Write a test application named InvoiceTest
+that demonstrates class Invoice’s capabilities.
+
+package moyonpreparation;
+
+public class Invoice {
+    String PartDescription;
+    String PartNumber;
+    int Quantity;
+    Double PricePerItem;
+
+    // Parameterized Constructor
+    public Invoice(String PartDesp, String PNumber, int Qty, Double Price) {
+        PartDescription = PartDesp;
+        PartNumber = PNumber;
+        Quantity = Qty;
+        PricePerItem = Price;
+    }
+    
+    public Invoice() {
+        PartDescription = "";
+        PartNumber = "";
+        Quantity = 0;
+        PricePerItem = 0.0;
+    }
+
+    // Setters and Getters
+    void setPartDescription(String Desp) {
+        PartDescription = Desp;
+    }
+
+    String getPartDescription() {
+        return PartDescription;
+    }
+
+    void setPartNumber(String PNumber) {
+        PartNumber = PNumber;
+    }
+
+    String getPartNumber() {
+        return PartNumber;
+    }
+
+    void setQuantity(int Qty) {
+        if (Qty > 0) {
+            Quantity = Qty;
+        }
+    }
+
+    int getQuantity() {
+        return Quantity;
+    }
+
+    void setPricePerItem(Double Price) {
+        if (Price > 0) {
+            PricePerItem = Price;
+        }
+    }
+
+    Double getPricePerItem() {
+        return PricePerItem;
+    }
+package moyonpreparation;
+
+public class InvoiceTest {
+    public static void main(String[] args) {
+        Invoice invoice = new Invoice("Samsung", "012345", 19, 1000.5);
+        
+        System.out.printf("PartDescription= %s\n Part Number=%s\n Quantity= %d \n Price Per Item=%.2f\n Total Amount of Price=%.2f\n\n",
+                invoice.getPartDescription(), invoice.getPartNumber(), invoice.getQuantity(), invoice.getPricePerItem(), invoice.getInvoiceAmount());
+        
+        Invoice invoice1 = new Invoice();
+        invoice1.setPartDescription("MI");
+        invoice1.setPartNumber("444555");
+        invoice1.setQuantity(14);
+        invoice1.setPricePerItem(45.50);
+        
+        System.out.printf("Invoice 1 Information \nPartDescription= %s\n Part Number=%s\n Quantity= %d \n Price Per Item=%.2f\n Total Amount of Price=%.2f\n",
+                invoice1.getPartDescription(), invoice1.getPartNumber(), invoice1.getQuantity(), invoice1.getPricePerItem(), invoice1.getInvoiceAmount());
+    }
+}
+    Double getInvoiceAmount() {
+        return getQuantity() * getPricePerItem();
+    }
+}
