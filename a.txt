@@ -91,3 +91,250 @@ public class InvoiceTest {
         return getQuantity() * getPricePerItem();
     }
 }
+
+
+(Date Class) Create a class called Date that includes three instance variables—a month (type
+int), a day (type int) and a year (type int). Provide a constructor that initializes the three
+instance variables and assumes that the values provided are correct. Provide a set and a get
+method for each instance variable. Provide a method displayDate that displays the month,
+day and year separated by forward slashes (/). Write a test application named DateTest that
+demonstrates class Date’s capabilities.
+
+package moyonpreparation;
+
+public class Date {
+	private int month;
+	private int day;
+	private int year;
+			
+	public Date(int month, int day, int year) {
+			this.month = month;
+			this.day = day;
+			this.year = year;
+		}
+		public void setMonth(int month) {
+			this.month = month;
+		}
+		public int getMonth() {
+			return month;
+		}
+		public void setDay(int day) {
+			this.day = day;
+		}
+		public int getDay() {
+			return day;
+		}
+		public void setYear(int year) {
+			this.year = year;
+		}
+		public int getYear() {
+			return year;
+		}
+		public void displayDate() {
+			System.out.println(month + "/" + day + "/" + year);
+		}
+
+}
+
+package moyonpreparation;
+
+public class DateTest {
+	public static void main(String[] args) {
+		Date date = new Date(9, 1, 2026);
+		date.displayDate();
+		date.setMonth(12);
+		date.setDay(25);
+		date.setYear(2026);
+		date.displayDate();
+	}
+}
+
+
+
+(Triangle Printing Program) Write an application that displays the following patterns
+separately,one below the other. Use for loops to generate the patterns. All asterisks (*) should be
+printed by a single statement of the form System.out.print( '*' ); which causes the asterisks to print
+side by side. A statement of the form System.out.println(); can be used to move to the next line. A
+statement of the form System.out.print( ' ' ); can be used to display a space for the last two patterns.
+There should be no other output statements in the program. [Hint: The last two patterns require
+that each line begin with an appropriate number of blank spaces.]
+(a) (b) (c) (d)
+* ********** ********** *
+** ********* ********* **
+*** ******** ******** ***
+**** ******* ******* ****
+***** ****** ****** *****
+****** ***** ***** ******
+******* **** **** *******
+******** *** *** ********
+********* ** ** *********
+********** * * **********
+
+package moyonpreparation;
+
+public class Star_A {
+
+	public static void main(String[] args) {
+		for (int i = 1; i <= 10; i++) {
+			for (int j = 1; j <= i; j++) {
+				System.out.print('*');
+			}
+			System.out.println();
+		}
+	}
+
+}
+
+package moyonpreparation;
+
+public class Star_B {
+
+	public static void main(String[] args) {
+		for (int i=10; i>=1; i--) {
+			for (int j=1; j<=i; j++) {
+				System.out.print('*');
+			}
+			System.out.println();
+		}
+	}
+
+}
+
+package moyonpreparation;
+
+public class Star_C {
+
+	public static void main(String[] args) {
+		for (int i = 1; i <= 10; i++) {
+			for (int space = 1; space <= 10-i; space++) {
+				System.out.print(' ');
+			}
+			for (int star = 1; star <= i; star++) {
+				System.out.print('*');
+			}
+			System.out.println();
+		}
+	}
+
+}
+
+package moyonpreparation;
+
+public class Star_D {
+
+	public static void main(String[] args) {
+		for (int i = 10; i >= 1; i--) {
+			for (int space = 1; space <= 10-i; space++) {
+				System.out.print(' ');
+			}
+			for (int star = 1; star <= i; star++) {
+				System.out.print('*');
+			}
+			System.out.println();
+		}
+	}
+
+}
+
+
+(Diamond Printing Program) Write an application that prints the following diamond shape.
+You may use output statements that print a single asterisk (*), a single space or a single newline
+character. Maximize your use of repetition (with nested for statements), and minimize the number
+of output statements.
+*
+***
+*****
+*******
+*********
+*******
+*****
+***
+*
+
+package moyonpreparation;
+
+public class Diamond {
+
+    public static void main(String[] args) {
+
+        int n = 5;
+        for (int i = 1; i <= n; i++) {
+            for (int space = 1; space <= n - i; space++) {
+                System.out.print(' ');
+            }
+            for (int star = 1; star <= 2 * i - 1; star++) {
+                System.out.print('*');
+            }
+            System.out.println();
+        }
+        for (int i = n - 1; i >= 1; i--) {
+            for (int space = 1; space <= n - i; space++) {
+                System.out.print(' ');
+            }
+            for (int star = 1; star <= 2 * i - 1; star++) {
+                System.out.print('*');
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+(Even or Odd) Write a method isEven that uses the remainder operator (%) to determine
+whether an integer is even. The method should take an integer argument and return true if
+the integer is even and false otherwise. Incorporate this method into an application that
+inputs a sequence of integers (one at a time) and determines whether each is even or odd.
+
+package moyonpreparation;
+
+import java.util.Scanner;
+public class EvenOdd {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        char ch;
+        
+        do {
+            System.out.println("Enter Number :");
+            int num = input.nextInt();
+            boolean b;
+            
+            b = EvenOdd(num);
+            if (b == true) {
+                System.out.printf("\n%d is Even Number \n", num);
+            } else {
+                System.out.printf("\n%d is Odd Number \n", num);
+            }
+            System.out.println("Do Another (y/n)");
+            ch = input.next().charAt(0);
+        } while (ch != 'n');
+    }
+
+    public static boolean EvenOdd(int num) {
+        if (num % 2 == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+
+(Circle Area) Write an application that prompts the user for the radius of a circle and uses a method called circle Area to calculate the area of the circle.
+
+package moyonpreparation;
+
+import java.util.Scanner;
+
+public class CircleArea {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter Radius :");
+        double radius = input.nextDouble();
+        double area = Area(radius);
+        System.out.printf("Circle Area = %.2f", area);
+    }
+    public static double Area(double radius) {
+        return 3.1415 * radius * radius;
+    }
+}
+
+
