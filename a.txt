@@ -406,12 +406,437 @@ public class RollDice {
 
             ++Frequency[n1 + n2];
         }
-        int i;
         System.out.println("Number Frequency\n");
-        for (i = 2; i < 13; i++) { 
+        for (int i = 2; i < 13; i++) { 
             System.out.printf("%3d%10d\n", i, Frequency[i]);
         }
     }
 }
 
 14.8 Create the following GUI. You do not have to provide any functionality.
+
+package moyonpreparation;
+
+import java.awt.*;
+import javax.swing.*;
+
+public class Align {
+    JFrame frmMain;
+    JCheckBox chkSnap, chkShow;
+    JLabel lblX, lblY;
+    JTextField txtX, txtY;
+    JButton btnOk, btnCancel, btnHelp;
+
+    Align() {
+
+        frmMain = new JFrame("Align");
+        frmMain.setSize(400, 200);
+        frmMain.setLocationRelativeTo(null);
+        frmMain.setLayout(null);
+
+        chkSnap = new JCheckBox("Snap to Grid");
+        chkShow = new JCheckBox("Snap to Show");
+
+        chkSnap.setBounds(10, 40, 150, 30);
+        chkShow.setBounds(10, 70, 150, 30);
+
+        lblX = new JLabel("X");
+        lblY = new JLabel("Y");
+
+        lblX.setBounds(160, 30, 50, 30);
+        lblY.setBounds(160, 80, 50, 30);
+
+        txtX = new JTextField();
+        txtX.setBounds(200, 30, 50, 30);
+
+        txtY = new JTextField();
+        txtY.setBounds(200, 80, 50, 30);
+
+        btnOk = new JButton("OK");
+        btnOk.setBounds(280, 20, 75, 30);
+
+        btnCancel = new JButton("Cancel");
+        btnCancel.setBounds(280, 60, 75, 30);
+
+        btnHelp = new JButton("Help");
+        btnHelp.setBounds(280, 100, 75, 30);
+
+        frmMain.add(chkShow);
+        frmMain.add(chkSnap);
+        frmMain.add(lblX);
+        frmMain.add(lblY);
+        frmMain.add(txtX);
+        frmMain.add(txtY);
+        frmMain.add(btnOk);
+        frmMain.add(btnCancel);
+        frmMain.add(btnHelp);
+
+        frmMain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frmMain.setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        Align e = new Align();
+    }
+}
+
+14.9 Create the following GUI. You do not have to provide any functionality.
+
+package moyonpreparation;
+
+import javax.swing.*;
+import java.awt.*;
+
+public class Calculator {
+	JFrame frmMain;
+	JTextField txtDisplay;
+	JPanel pnlButton;
+	JButton btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0;
+	JButton btnPlus, btnMinus, btnDiv, btnMult, btnEqual, btnDecimal;
+	
+	Calculator() {
+		frmMain = new JFrame("Moyon's Calculator");
+		frmMain.setSize(300, 350);
+		frmMain.setLocationRelativeTo(null);
+		frmMain.setLayout(null);
+		frmMain.getContentPane().setBackground(Color.PINK);
+		
+		txtDisplay = new JTextField();
+		txtDisplay.setBounds(20, 10, 250, 30);
+		
+		pnlButton=new JPanel();
+		pnlButton.setBounds(20, 50, 250, 250);
+		pnlButton.setLayout(new GridLayout(4, 4, 5, 5));
+		
+		btn1=new JButton("1");
+		btn2=new JButton("2");
+		btn3=new JButton("3");
+		btn4=new JButton("4");
+		btn5=new JButton("5");
+		btn6=new JButton("6");
+		btn7=new JButton("7");
+		btn8=new JButton("8");
+		btn9=new JButton("9");
+		btn0=new JButton("0");
+		
+		btnDecimal=new JButton(".");
+		btnPlus=new JButton("+");
+		btnMinus=new JButton("-");
+		btnMult=new JButton("x");
+		btnEqual=new JButton("=");
+		btnDiv= new JButton("/");
+		
+		pnlButton.add(btn7);
+		pnlButton.add(btn8);
+		pnlButton.add(btn9);
+		pnlButton.add(btnDiv);
+		
+		pnlButton.add(btn4);
+		pnlButton.add(btn5);
+		pnlButton.add(btn6);
+		pnlButton.add(btnMult);
+		
+		pnlButton.add(btn1);
+		pnlButton.add(btn2);
+		pnlButton.add(btn3);
+		pnlButton.add(btnMinus);
+		
+		pnlButton.add(btn0);
+		pnlButton.add(btnDecimal);
+		pnlButton.add(btnEqual);
+		pnlButton.add(btnPlus);
+		
+		frmMain.add(txtDisplay);
+		frmMain.add(pnlButton);
+		
+		frmMain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmMain.setVisible(true);
+	}
+	
+	public static void main(String[] args) {
+		Calculator c= new Calculator();
+	}
+
+}
+
+14.10 Create the following GUI. You do not have to provide any functionality.
+
+package moyonpreparation;
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class ComboTest {
+    JFrame frmMain;
+    JComboBox<String> cboColor;
+    JPanel pnl;
+    JCheckBox chkBackground, chkForeground;
+    JButton btnOk, btnCancel;
+
+    ComboTest() {
+        frmMain = new JFrame("Combo Testing");
+        frmMain.setSize(350, 200);
+        frmMain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frmMain.setLocationRelativeTo(null);
+        frmMain.setLayout(null);
+
+        frmMain.getContentPane().setBackground(Color.GRAY);
+
+        pnl = new JPanel();
+        pnl.setBounds(10, 50, 300, 100);
+        pnl.setLayout(new FlowLayout());
+        
+        chkBackground = new JCheckBox("Background Color");
+        chkForeground = new JCheckBox("Foreground Color");
+
+        btnOk = new JButton("Ok");
+        btnCancel = new JButton("Cancel");
+
+        pnl.add(chkBackground);
+        pnl.add(chkForeground);
+        pnl.add(btnOk);
+        pnl.add(btnCancel);
+
+        cboColor = new JComboBox<>();
+
+        cboColor.setBounds(10, 10, 300, 30);
+
+        cboColor.addItem("Red");
+        cboColor.addItem("Green");
+        cboColor.addItem("Blue");
+
+        frmMain.add(cboColor);
+        frmMain.add(pnl);
+
+        btnOk.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                String color = (String) cboColor.getSelectedItem();
+                Color selectedColor = Color.GRAY;
+                if (color.equals("Red")) {
+                    selectedColor = Color.RED;
+                } 
+                else if (color.equals("Green")) {
+                    selectedColor = Color.GREEN;
+                } 
+                else if (color.equals("Blue")) {
+                    selectedColor = Color.BLUE;
+                }
+
+                // Background Color
+                if (chkBackground.isSelected()) {
+                    frmMain.getContentPane().setBackground(selectedColor);
+                }
+
+                // Foreground Color
+                if (chkForeground.isSelected()) {
+                    cboColor.setForeground(selectedColor);
+                    chkBackground.setForeground(selectedColor);
+                    chkForeground.setForeground(selectedColor);
+                    btnOk.setForeground(selectedColor);
+                    btnCancel.setForeground(selectedColor);
+                }
+
+                frmMain.repaint();
+            }
+        });
+
+        btnCancel.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                chkBackground.setSelected(false);
+                chkForeground.setSelected(false);
+                frmMain.getContentPane().setBackground(Color.GRAY);
+                cboColor.setForeground(Color.BLACK);
+                chkBackground.setForeground(Color.BLACK);
+                chkForeground.setForeground(Color.BLACK);
+                btnOk.setForeground(Color.BLACK);
+                btnCancel.setForeground(Color.BLACK);
+                frmMain.repaint();
+            }
+        });
+        frmMain.setVisible(true);
+    }
+    public static void main(String[] args) {
+        ComboTest t = new ComboTest();
+    }
+}
+
+Login Form
+
+package moyonpreparation;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+public class Login2 implements ActionListener {
+
+    JFrame frmMain;
+    JPanel pnl;
+    JLabel lbl1, lbl2;
+    JTextField txtDisplay;
+    JPasswordField pswDisplay;
+    JButton btnLogin;
+    JCheckBox chkShow;
+
+    Login2() {
+
+        frmMain = new JFrame("Login");
+        frmMain.setLayout(null);
+        frmMain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frmMain.getContentPane().setBackground(Color.CYAN);
+        frmMain.setSize(500, 300);
+
+        pnl = new JPanel();
+        pnl.setBounds(10, 10, 460, 100);
+        pnl.setLayout(new GridLayout(2, 2, 10, 10));
+        pnl.setBackground(Color.CYAN);
+
+        frmMain.add(pnl);
+        lbl1 = new JLabel("User Name");
+        pnl.add(lbl1);
+
+        txtDisplay = new JTextField();
+        pnl.add(txtDisplay);
+
+        lbl2 = new JLabel("Password");
+        pnl.add(lbl2);
+
+        pswDisplay = new JPasswordField();
+        pnl.add(pswDisplay);
+
+        chkShow = new JCheckBox("Show Password");
+        chkShow.setBounds(180, 120, 150, 30);
+        chkShow.addActionListener(this);
+        frmMain.add(chkShow);
+
+        btnLogin = new JButton("Login");
+        btnLogin.setBounds(200, 160, 70, 40);
+        btnLogin.addActionListener(this);
+        frmMain.add(btnLogin);
+
+        frmMain.setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        Login2 l = new Login2();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+        if (e.getSource() == btnLogin) {
+            String username = txtDisplay.getText();
+            String password = new String(pswDisplay.getPassword());
+            if (username.equals("Admin") && password.equals("1234")) {
+                JOptionPane.showMessageDialog(null,"Login Successful","Login dialogbox",JOptionPane.INFORMATION_MESSAGE);
+            } else {
+
+                JOptionPane.showMessageDialog(null,"Invalid Username or Password","Login dialogbox",JOptionPane.ERROR_MESSAGE);
+            }
+        }
+
+        if (e.getSource() == chkShow) {
+            if (chkShow.isSelected()) {
+                chkShow.setText("Hide password");
+                pswDisplay.setEchoChar((char) 0);
+            } else {
+                chkShow.setText("Show Password");
+                pswDisplay.setEchoChar('*');
+            }
+        }
+    }
+}
+
+NotePad
+
+package moyonpreparation;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class MenuBar implements ActionListener {
+
+    JFrame frmMain;
+    JMenuBar menubar;
+    JMenu mmuFile, mmuEdit, mmuHelp;
+    JMenuItem itemNew, itemOpen, itemClose;
+    JMenuItem itemCut, itemCopy, itemPaste, itemSelect;
+    JTextArea txtArea;
+
+    MenuBar() {
+
+        frmMain = new JFrame("Home Page");
+
+        frmMain.setSize(400, 300);
+        frmMain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frmMain.setLocationRelativeTo(null);
+        frmMain.getContentPane().setBackground(Color.WHITE);
+
+        menubar = new JMenuBar();
+        mmuFile = new JMenu("File");
+        mmuEdit = new JMenu("Edit");
+        mmuHelp = new JMenu("Help");
+
+        itemNew = new JMenuItem("New");
+        itemOpen = new JMenuItem("Open");
+        itemClose = new JMenuItem("Close");
+
+        itemCut = new JMenuItem("Cut");
+        itemCopy = new JMenuItem("Copy");
+        itemPaste = new JMenuItem("Paste");
+        itemSelect = new JMenuItem("Select All");
+
+        itemCut.addActionListener(this);
+        itemCopy.addActionListener(this);
+        itemPaste.addActionListener(this);
+        itemSelect.addActionListener(this);
+
+        txtArea = new JTextArea();
+
+        mmuFile.add(itemNew);
+        mmuFile.add(itemOpen);
+        mmuFile.add(itemClose);
+
+        mmuEdit.add(itemCut);
+        mmuEdit.add(itemCopy);
+        mmuEdit.add(itemPaste);
+        mmuEdit.add(itemSelect);
+
+        menubar.add(mmuFile);
+        menubar.add(mmuEdit);
+        menubar.add(mmuHelp);
+
+        frmMain.add(txtArea);
+        frmMain.setJMenuBar(menubar);
+        frmMain.setVisible(true);
+    }
+
+    public static void main(String[] args) {
+
+        MenuBar e = new MenuBar();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+        if (e.getSource() == itemCut) {
+            txtArea.cut();
+        }
+
+        if (e.getSource() == itemCopy) {
+            txtArea.copy();
+        }
+
+        if (e.getSource() == itemPaste) {
+            txtArea.paste();
+        }
+
+        if (e.getSource() == itemSelect) {
+            txtArea.selectAll();
+        }
+    }
+}
