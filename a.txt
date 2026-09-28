@@ -341,4 +341,77 @@ public class CircleArea {
 (Find the Minimum) Write a method minimum3 that returns the smallest of three floating point numbers. Use the Math.min method to implement minimum3. Incorporate the method into an application that reads three values from the user, determines the smallest
 value and displays the result.
 
+package moyonpreparation;
 
+import java.util.Scanner;
+public class MinimumNumber {    
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int num1,num2,num3;
+        System.out.println("Give Three numbers : ");
+        num1 = input.nextInt();
+        num2 = input.nextInt();
+        num3 = input.nextInt();
+        
+        int Mini = findminimum(num1,num2,num3);
+        System.out.printf("Minimum Number is %d", Mini);
+        input.close();
+    }
+
+	private static int findminimum(int num1, int num2, int num3) {
+		return Math.min(num1, Math.min(num2, num3));
+	}    
+}
+
+
+(Variable-Length Argument List) Write an application that calculates the product of a series of integers that are passed to method product using a variable-length argument list. 
+Test your method with several calls, each with a different number of arguments.
+
+package moyonpreparation;
+
+public class Product {
+    public static int product(int... numbers) {
+        int prod = 1;
+
+        for (int n : numbers) {
+            prod *= n;
+        }
+
+        return prod;
+    }
+    public static void main(String[] args) {
+        System.out.println(product(2, 4));
+        System.out.println(product(2, 4, 8));
+        System.out.println(product(2, 4, 8, 9));
+    }
+}
+
+
+(Dice Rolling) Write an application to simulate the rolling of two dice. The application should use an object of class Random once to roll the first die and again to roll the second die. The sum of the two values should then be calculated. Each die can show an integer value from 1 to 6, so the sum of the values will vary from 2 to 12, with 7 being the most frequent sum, and 2 and 12 the least frequent. Figure 7.28 shows the 36 possible combinations of the two dice. Your application should roll the dice 36,000,000 times. Use a one-dimensional array to tally the number of times each possible sum appears. Display the results in tabular format.
+
+package moyonpreparation;
+
+import java.util.Random;
+
+public class RollDice {
+    public static void main(String[] args) {
+        Random d1 = new Random();
+        Random d2 = new Random();
+        
+        int[] Frequency = new int[37];
+        
+        for (int i = 0; i < 36000000; i++) {
+            int n1 = d1.nextInt(6) + 1;
+            int n2 = d2.nextInt(6) + 1;
+
+            ++Frequency[n1 + n2];
+        }
+        int i;
+        System.out.println("Number Frequency\n");
+        for (i = 2; i < 13; i++) { 
+            System.out.printf("%3d%10d\n", i, Frequency[i]);
+        }
+    }
+}
+
+14.8 Create the following GUI. You do not have to provide any functionality.
